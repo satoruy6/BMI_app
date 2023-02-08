@@ -2,6 +2,11 @@ import streamlit as  st
 import pandas as pd
 from various import bmi, appropriate_body_weight, body_mass_index
 
+st.set_page_config(
+  page_title="BMI app",
+  page_icon="🚁",
+)
+
 st.title('体格指数BMI等を算出するアプリ')
 height = st.text_input('身長(cm)を入力してください', 164)
 weight = st.text_input('体重(kg)を入力してください', 64.1)
