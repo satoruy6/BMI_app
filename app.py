@@ -1,6 +1,6 @@
 import streamlit as  st
 import pandas as pd
-from various import bmi, appropriate_body_weight, body_mass_index
+from various import Person
 
 st.set_page_config(
   page_title="BMI app",
@@ -16,9 +16,10 @@ if st.button('算出開始'):
         comment.write('算出を開始しました。')
         height = float(height)
         weight = float(weight)
-        bmi = bmi(height, weight)
-        appropriate_body_weight = appropriate_body_weight(height)
-        body_mass_index = body_mass_index(bmi)
+        person = Person(height, weight)
+        bmi = person.bmi()
+        appropriate_body_weight = person.appropriate_body_weight()
+        body_mass_index = person.body_mass_index()
         st.write(f'BMIは{str(bmi)}です。')
         st.write(f'適正体重は{str(appropriate_body_weight)}kgです。')
         st.write(f'肥満度は、{body_mass_index}です。')
